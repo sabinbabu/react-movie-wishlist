@@ -1,8 +1,17 @@
-# React + Vite
+# Movie Wishlist
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project fetches data from an API based on user input and displays them dynamically. User can save their favorite movies and and remove them. The data is saved locally.
 
-Currently, two official plugins are available:
+## ✨ Concepts Used:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React Components
+- React Hooks (useState, useEffect, useRef)
+- React Props
+- Data Manipulation
+- API interaction
+
+## ✨ Key Features:
+
+- Search for specific movie
+- Favorites Management: Users can save movies as favorites or remove them, with their preferences saved locally.
+- Dynamic Display: The app seamlessly updates as users interact with it.
