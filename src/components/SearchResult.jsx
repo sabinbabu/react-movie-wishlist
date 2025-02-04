@@ -13,9 +13,15 @@ const SearchResult = (props) => {
   };
   return (
     <>
+      <h2>Search Result</h2>
       <MovieCard movie={movie} />
-      <Stack direction="horizontal" style={{ width: "18rem" }}>
-        <Form.Select ref={selectRef} aria-label="Select genre">
+      {/* Button to add to wishlist */}
+      <Stack direction="horizontal" gap={4} className="mt-2">
+        <Form.Select
+          ref={selectRef}
+          aria-label="Select genre"
+          style={{ width: "20rem" }}
+        >
           <option>Select genre</option>
           <option value="action">Action</option>
           <option value="comedy">Comedy</option>

@@ -10,7 +10,7 @@ const MovieCard = ({ movie, handleRemoveBtnClick }) => {
         <Card.Text>{movie.Plot}</Card.Text>
         <Card.Text>
           {movie.Actors?.split(",").map((actor) => (
-            <Badge bg="danger" key={movie.imdbID}>
+            <Badge className="mx-1" bg="danger" key={movie.imdbID}>
               {actor}
             </Badge>
           ))}
