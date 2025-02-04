@@ -22,8 +22,12 @@ const SearchBar = (props) => {
   };
   return (
     <Container>
-      <Stack direction="horizontal">
-        <Form.Control type="email" placeholder="Enter email" ref={searchRef} />
+      <Stack direction="horizontal" gap={3}>
+        <Form.Control
+          type="email"
+          placeholder="Enter movie name"
+          ref={searchRef}
+        />
         <Button onClick={handleOnClick}>Search</Button>
       </Stack>
     </Container>
