@@ -3,7 +3,7 @@ import "./App.css";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import SearchResult from "./components/SearchResult";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import FavoriteMovies from "./components/FavoriteMovies";
 
 function App() {
@@ -16,17 +16,6 @@ function App() {
     localStorage.setItem("movieData", JSON.stringify(movieDataFav));
   }, [movieDataFav]);
 
-  const selectRef = useRef(null);
-  // Add movie to favorite list
-  const handleOnFavBtnClick = () => {
-    // check if movie is already a favorite
-    if (!movieDataFav.some((favMovie) => favMovie.imdbID === movie.imdbID)) {
-      const movieObject = { ...movie, genre: selectRef.current.value };
-      setMovieDataFav((prevMovies) => [...prevMovies, movieObject]);
-      selectRef.current.value = "Select genre";
-    }
-  };
-
   // Remove movie from favorite list
   const handleRemoveBtnClick = (movieID) => {
     const updatedMovies = movieDataFav.filter(
@@ -34,6 +23,8 @@ function App() {
     );
     setMovieDataFav(updatedMovies);
   };
+
+  const errorWarning = "Please Search for a movie";
 
   return (
     <Container fluid>
@@ -45,14 +36,14 @@ function App() {
           xs={4}
           className="d-flex flex-column justify-center align-items-center"
         >
-          {Object.keys(movie).length ? (
+          {Object.keys(movie).length > 2 ? (
             <SearchResult
               movie={movie}
-              handleOnFavBtnClick={handleOnFavBtnClick}
-              selectRef={selectRef}
+              movieDataFav={movieDataFav}
+              setMovieDataFav={setMovieDataFav}
             />
           ) : (
-            <Alert variant="warning"> Please Search for a movie</Alert>
+            <Alert variant="warning">{movie.Error || errorWarning}</Alert>
           )}
         </Col>
         <Col xs={8}>
