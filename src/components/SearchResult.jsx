@@ -18,7 +18,7 @@ const SearchResult = (props) => {
     if (selectRef.current.value !== "Select genre") {
       setIsGenreSelected(false);
       const movieObject = { ...movie, genre: selectRef.current.value };
-      setMovieDataFav((prevMovies) => [...prevMovies, movieObject]);
+      setMovieDataFav((prevMovies) => [...prevMovies, movieObject].reverse());
       selectRef.current.value = "Select genre";
     } else {
       setIsGenreSelected(true);
