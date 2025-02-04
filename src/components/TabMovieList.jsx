@@ -5,11 +5,11 @@ import MovieCard from "./MovieCard";
 const TabMovieList = ({ movieList, handleRemoveBtnClick, genre }) => {
   const emptyMessage = genre;
   return (
-    <>
+    <div className="overflow-auto" style={{ height: "68vh" }}>
       {!!movieList.length && (
         <Row>
           {movieList.map((movie) => (
-            <Col key={movie.imdbID}>
+            <Col className="mt-4" key={movie.imdbID}>
               <MovieCard
                 movie={movie}
                 handleRemoveBtnClick={handleRemoveBtnClick}
@@ -25,7 +25,7 @@ const TabMovieList = ({ movieList, handleRemoveBtnClick, genre }) => {
           Please add {emptyMessage} movie to favorite
         </Alert>
       )}
-    </>
+    </div>
   );
 };
 

@@ -5,12 +5,15 @@ import SearchBar from "./components/SearchBar";
 import SearchResult from "./components/SearchResult";
 import { useEffect, useState } from "react";
 import FavoriteMovies from "./components/FavoriteMovies";
+import Footer from "./components/Footer";
 
 function App() {
   const [movie, setMovie] = useState({});
   const [movieDataFav, setMovieDataFav] = useState(
     JSON.parse(localStorage.getItem("movieData")) || []
   );
+
+  console.log(movie);
 
   useEffect(() => {
     localStorage.setItem("movieData", JSON.stringify(movieDataFav));
@@ -53,6 +56,7 @@ function App() {
           />
         </Col>
       </Row>
+      <Footer />
     </Container>
   );
 }
