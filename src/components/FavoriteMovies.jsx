@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
-import { Stack, Tab, Tabs } from "react-bootstrap";
-import MovieCard from "./MovieCard";
+import { Tab, Tabs } from "react-bootstrap";
 import { filteredMovieGenre } from "../utility/filteredMovieGenre";
+import TabMovieList from "./TabMovieList";
 
 const FavoriteMovies = ({ movieDataFav, handleRemoveBtnClick }) => {
   const actionMovies = filteredMovieGenre(movieDataFav, "action");
@@ -16,48 +16,32 @@ const FavoriteMovies = ({ movieDataFav, handleRemoveBtnClick }) => {
         className="mb-3"
       >
         <Tab eventKey="all" title="All">
-          <Stack direction="horizontal">
-            {movieDataFav.map((movie) => (
-              <MovieCard
-                key={movie.imdbID}
-                movie={movie}
-                handleRemoveBtnClick={handleRemoveBtnClick}
-              />
-            ))}
-          </Stack>
+          <TabMovieList
+            movieList={movieDataFav}
+            handleRemoveBtnClick={handleRemoveBtnClick}
+            genre=""
+          />
         </Tab>
         <Tab eventKey="action" title="Action">
-          <Stack direction="horizontal">
-            {actionMovies.map((movie) => (
-              <MovieCard
-                key={movie.imdbID}
-                movie={movie}
-                handleRemoveBtnClick={handleRemoveBtnClick}
-              />
-            ))}
-          </Stack>
+          <TabMovieList
+            movieList={actionMovies}
+            handleRemoveBtnClick={handleRemoveBtnClick}
+            genre="action"
+          />
         </Tab>
         <Tab eventKey="comedy" title="Comedy">
-          <Stack direction="horizontal">
-            {comedyMovies.map((movie) => (
-              <MovieCard
-                key={movie.imdbID}
-                movie={movie}
-                handleRemoveBtnClick={handleRemoveBtnClick}
-              />
-            ))}
-          </Stack>
+          <TabMovieList
+            movieList={comedyMovies}
+            handleRemoveBtnClick={handleRemoveBtnClick}
+            genre="comedy"
+          />
         </Tab>
         <Tab eventKey="romantic" title="Romantic">
-          <Stack direction="horizontal">
-            {romanticMovies.map((movie) => (
-              <MovieCard
-                key={movie.imdbID}
-                movie={movie}
-                handleRemoveBtnClick={handleRemoveBtnClick}
-              />
-            ))}
-          </Stack>
+          <TabMovieList
+            movieList={romanticMovies}
+            handleRemoveBtnClick={handleRemoveBtnClick}
+            genre="romantic"
+          />
         </Tab>
       </Tabs>
     </>
