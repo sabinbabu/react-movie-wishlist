@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Badge, Button, Card } from "react-bootstrap";
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, handleRemoveBtnClick }) => {
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Img variant="top" src={movie.Poster} />
@@ -16,7 +16,14 @@ const MovieCard = ({ movie }) => {
           ))}
         </Card.Text>
 
-        {movie.genre && <Button variant="outline-danger">Remove</Button>}
+        {movie.genre && (
+          <Button
+            onClick={() => handleRemoveBtnClick(movie.imdbID)}
+            variant="outline-danger"
+          >
+            Remove
+          </Button>
+        )}
       </Card.Body>
     </Card>
   );
